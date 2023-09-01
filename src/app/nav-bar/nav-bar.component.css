@@ -1,0 +1,41 @@
+.navBar {
+    background: linear-gradient(135deg, rgba(225,225,225,0.1), rgba(225,225,225,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(225, 225, 225, 0.18);
+    /* box-shadow: 0 8px 10px 0 rgba(225, 225, 225, 0.37); */
+    overflow-x: hidden;
+    display: flex;
+    position: sticky;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    transition: top 0.3s;
+}
+
+.nav-items {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+}
+
+#myName {
+    color: whitesmoke;
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Trispace', sans-serif;
+}
+
+#works, #contact, #about {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Trispace', sans-serif;
+}
+
+#myName:hover, #works:hover, #contact:hover, #about:hover {
+    color: #FE7BE5;
+}
