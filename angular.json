@@ -25,7 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css" 
             ],
             "scripts": []
           },
@@ -87,7 +87,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome//css/fontawesome.css",
+              "/your-path-to-fontawesome/css/brands.css",
+              "/your-path-to-fontawesome/css/solid.css"
             ],
             "scripts": []
           }

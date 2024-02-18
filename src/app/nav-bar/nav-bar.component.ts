@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import * as userData from '../userInfo.json'
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import * as userData from '../userInfo.json';
+import { faBars, faC } from '@fortawesome/free-solid-svg-icons';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,4 +11,6 @@ import * as userData from '../userInfo.json'
 })
 export class NavBarComponent {
   data = userData;
+  faBar = faBars;
+  close = faClose;
 }

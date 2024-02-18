@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as userData from '../userInfo.json'
+import * as userData from '../userInfo.json';
 
 @Component({
   selector: 'app-home-page',

@@ -1,15 +1,20 @@
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@200&display=swap" rel="stylesheet">
-</head>
-<div class="navBar">
-    <a href="#" id="myName">{{data.name | uppercase}}</a>
-    <nav class="nav-items">
-        <a href="#" id="about">{{data.about}}</a>
-        <a href="#" id="works">{{data.works}}</a>
-        <a href="#" id="contact">{{data.contact}}</a>
-    </nav>
-</div>
 <div>
+    <div class="p-5 shadow-sm">
+        <nav class="flex items-center justify-between w-[92%] mx-auto">
+            <div class="text-4xl font-mono font-semibold"> {{data.name | uppercase }} </div>
+            <div class="md:static absolute md:min-h-fit min-h-[40vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-7">
+                    <li>
+                        <a href="#" class="text-2xl font-mono hover:text-accent">About-Me</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-2xl font-mono hover:text-accent">Works</a> 
+                    </li>
+                    <li>
+                        <a href="#" class="text-2xl font-mono hover:text-accent">Contact</a> 
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>
