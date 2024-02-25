@@ -13,4 +13,5 @@ export class NavBarComponent {
   data = userData;
   faBar = faBars;
   close = faClose;
+  showMenu = false;
 }
