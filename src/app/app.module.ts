@@ -8,7 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { WorksComponent } from './works/works.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card'
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,13 @@ import { MatCardModule } from '@angular/material/card'
     NavBarComponent,
     HomePageComponent,
     WorksComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
