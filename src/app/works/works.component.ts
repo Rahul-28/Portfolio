@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import * as userData from '../userInfo.json';
 import { HttpClient } from '@angular/common/http';
-
+import { register } from 'swiper/element/bundle'
+register();
 @Component({
   selector: 'app-works',
   templateUrl: './works.component.html',
@@ -13,6 +14,7 @@ export class WorksComponent {
   repoResourceUrl = ''
   gitProfileData: any
   gitRepoData: any
+  currentIndex: number = 0;
 
   constructor(
     private http: HttpClient
@@ -34,4 +36,17 @@ export class WorksComponent {
       this.gitRepoData = data;
     });
   }
+
+  nextCard() {
+    if (this.currentIndex < this.gitRepoData.length - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  prevCard() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
 }
