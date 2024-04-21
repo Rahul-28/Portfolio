@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <nav class="p-3 px-6 text-white bg-black">
+    <nav class="p-3 px-6 top-0 w-[100%] z-50 text-white bg-slate-700 fixed">
       <div class="flex justify-between items-center">
         <div class="font-semibold text-blue-400 text-3xl hover:text-blue-700">
           <a href="#">Rahul</a>
         </div>
 
         <ul class="flex text-xl">
-          <li class="mr-5 hover:text-blue-400 active:bg-slate-50">
-            <a href="#">About Me</a>
+          <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
+            <a href="aboutpage">About Me</a>
           </li>
-          <li class="mr-5 hover:text-blue-400"><a href="#">Works</a></li>
-          <li class="mr-5 hover:text-blue-400"><a href="#">Contact</a></li>
+          <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
+            <a href="workspage">Works</a>
+          </li>
+          <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
+            <a href="contactpage">Contact</a>
+          </li>
         </ul>
 
-        <div>
+        <div class="flex">
+          <button
+            class="mr-5 p-2 w-20 rounded-xl bg-blue-600 hover:bg-blue-700 font-medium"
+            (click)="showResume = !showResume"
+          >
+            {{ showResume ? "Back" : "Resume" }}
+          </button>
           <a
             href="https://github.com/Rahul-28"
             target="_blank"
@@ -34,5 +44,75 @@
         </div>
       </div>
     </nav>
+
+    @if (showResume) {
+      <pdf-viewer
+        src="../assets/documents/RahulRajesh.pdf"
+        [rotation]="0"
+        [original-size]="false"
+        [show-all]="true"
+        [fit-to-page]="true"
+        [zoom]="1"
+        [zoom-scale]="'page-fit'"
+        [stick-to-page]="false"
+        [render-text]="true"
+        [external-link-target]="'blank'"
+        [autoresize]="true"
+        [show-borders]="false"
+        style="width: 100%; height: 100vh"
+        class="bg-gray-200 mt-16"
+      ></pdf-viewer>
+    } @else {
+      <app-about></app-about>
+
+      <app-works></app-works>
+
+      <app-contact></app-contact>
+
+      <footer class="bg-slate-700 text-white">
+        <div class="flex justify-around px-10">
+          <div class="flex flex-col items-center justify-center text-center">
+            <p class="m-1">Rahul Rajesh</p>
+            <p class="m-1">Powered by ☕</p>
+          </div>
+          <div>
+            <h2 class="m-2 font-semibold text-xl">Socials</h2>
+            <ul>
+              <li class="m-2 hover:text-blue-300">
+                <a href="https://github.com/Rahul-28" target="_blank">Github</a>
+              </li>
+              <li class="m-2 hover:text-blue-300">
+                <a
+                  href="https://www.linkedin.com/in/rahul-rajesh-s-b06386212/"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </li>
+              <li class="m-2 hover:text-blue-300">
+                <a href="https://linktr.ee/rahulrajesh" target="_blank"
+                  >Linktree</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="m-2 font-semibold text-xl">Others</h2>
+            <ul>
+              <li class="m-2 hover:text-blue-300">
+                <a href="mailto:rahulrajeshrr365@gmail.com">Mail</a>
+              </li>
+              <li class="m-2 hover:text-blue-300">
+                <a
+                  href="https://stackoverflow.com/users/23579476/rahul-rajesh"
+                  target="_blank"
+                  >Stackoverflow</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    }
   </body>
 </html>
