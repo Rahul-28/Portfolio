@@ -8,18 +8,18 @@
     <nav class="p-3 px-6 top-0 w-[100%] z-50 text-white bg-slate-700 fixed">
       <div class="flex justify-between items-center">
         <div class="font-semibold text-blue-400 text-3xl hover:text-blue-700">
-          <a href="#">Rahul</a>
+          <a routerLink="" (click)="showResume = false">Rahul</a>
         </div>
 
         <ul class="flex text-xl">
           <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
-            <a href="aboutpage">About Me</a>
+            <a routerLink="/about" (click)="showResume = false">About Me</a>
           </li>
           <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
-            <a href="workspage">Works</a>
+            <a routerLink="/works" (click)="showResume = false">Works</a>
           </li>
           <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
-            <a href="contactpage">Contact</a>
+            <a routerLink="/contact" (click)="showResume = false">Contact</a>
           </li>
         </ul>
 
@@ -60,20 +60,23 @@
         [autoresize]="true"
         [show-borders]="false"
         style="width: 100%; height: 100vh"
-        class="bg-gray-200 mt-16"
+        class="bg-topography-pattern mt-16"
       ></pdf-viewer>
     } @else {
-      <app-about></app-about>
-
-      <app-works></app-works>
-
-      <app-contact></app-contact>
+      <router-outlet></router-outlet>
 
       <footer class="bg-slate-700 text-white">
         <div class="flex justify-around px-10">
           <div class="flex flex-col items-center justify-center text-center">
-            <p class="m-1">Rahul Rajesh</p>
-            <p class="m-1">Powered by ☕</p>
+            <p class="m-1">&copy;Rahul Rajesh</p>
+            <div class="flex">
+              <p class="m-1">Made with</p>
+              <img
+                class="w-7 h-7"
+                src="../assets/images/angular-icon.svg"
+                alt="angular-icon"
+              />
+            </div>
           </div>
           <div>
             <h2 class="m-2 font-semibold text-xl">Socials</h2>
@@ -112,6 +115,14 @@
             </ul>
           </div>
         </div>
+        <p class="text-center p-1">
+          Feel free to 🌟 or fork this project
+          <a
+            href="https://github.com/Rahul-28/Portfolio"
+            class="underline hover:text-blue-300"
+            >here</a
+          >
+        </p>
       </footer>
     }
   </body>

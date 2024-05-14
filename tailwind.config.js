@@ -7,6 +7,11 @@ module.exports = {
         caveat: ["Caveat", "cursive"],
         noto: ["Noto Sans JP", "sans-serif"],
       },
+      backgroundImage: {
+        "fish-pattern": "url('/assets/images/back-ground/fish-bg.png')",
+        "topography-pattern":
+          "url('/assets/images/back-ground/topography-bg.jpg')",
+      },
     },
   },
   plugins: [],
