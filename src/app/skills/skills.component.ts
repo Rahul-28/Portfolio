@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-works',
+  selector: 'app-skills',
   standalone: true,
   imports: [],
-  templateUrl: './works.component.html',
-  styleUrl: './works.component.css'
+  templateUrl: './skills.component.html',
+  styleUrl: './skills.component.css'
 })
-export class WorksComponent implements OnInit {
+export class SkillsComponent implements OnInit {
+
   resourceUrl = "https://api.github.com/users/Rahul-28";
   repoDataUrl = "https://api.github.com/users/Rahul-28/repos";
   gitUserData!: any;

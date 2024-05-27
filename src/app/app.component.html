@@ -3,47 +3,143 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Design with Tailwind CSS</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <nav class="p-3 px-6 top-0 w-[100%] z-50 text-white bg-slate-700 fixed">
-      <div class="flex justify-between items-center">
-        <div class="font-semibold text-blue-400 text-3xl hover:text-blue-700">
-          <a routerLink="" (click)="showResume = false">Rahul</a>
-        </div>
+  <body class="font-sans">
+    <nav
+      class="p-3 px-6 top-0 w-full z-50 text-white bg-slate-700 fixed flex justify-between items-center"
+    >
+      <div class="font-semibold text-blue-400 text-3xl hover:text-blue-700">
+        <a routerLink="">Rahul</a>
+      </div>
 
-        <ul class="flex text-xl">
-          <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
-            <a routerLink="/about" (click)="showResume = false">About Me</a>
+      <div class="hidden md:flex items-center space-x-6 text-xl">
+        <a routerLink="/about" class="hover:bg-blue-700 p-2 rounded-xl"
+          >About Me</a
+        >
+        <a routerLink="/skills" class="hover:bg-blue-700 p-2 rounded-xl"
+          >Projects</a
+        >
+        <a routerLink="/contact" class="hover:bg-blue-700 p-2 rounded-xl"
+          >Contact</a
+        >
+      </div>
+
+      <div class="hidden md:flex items-center space-x-4">
+        <button
+          class="p-2 w-20 rounded-xl bg-blue-600 hover:bg-blue-700 font-medium"
+          (click)="toggleResume()"
+        >
+          {{ showResume ? "Back" : "Resume" }}
+        </button>
+        <a
+          href="https://github.com/Rahul-28"
+          target="_blank"
+          class="opacity-100 hover:opacity-80"
+        >
+          <img
+            src="../assets/images/github-mark-white.svg"
+            alt="git"
+            class="w-10 h-10"
+          />
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="md:hidden" (click)="toggleMenu()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+    </nav>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 transform -translate-x-full transition-transform duration-300 md:hidden"
+      [class.drawer-open]="isMenuOpen"
+    >
+      <div class="fixed inset-y-0 left-0 w-64 bg-slate-700 text-white p-4">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-2xl font-semibold">Menu</span>
+          <button id="menu-close" class="text-white" (click)="toggleMenu()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <ul class="space-y-4 text-xl">
+          <li>
+            <a
+              routerLink="/about"
+              class="block p-2 rounded-xl hover:bg-blue-700"
+              (click)="toggleMenu()"
+              >About Me</a
+            >
           </li>
-          <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
-            <a routerLink="/works" (click)="showResume = false">Works</a>
+          <li>
+            <a
+              routerLink="/skills"
+              class="block p-2 rounded-xl hover:bg-blue-700"
+              (click)="toggleMenu()"
+              >Projects</a
+            >
           </li>
-          <li class="mr-5 p-2 rounded-xl hover:bg-blue-700">
-            <a routerLink="/contact" (click)="showResume = false">Contact</a>
+          <li>
+            <a
+              routerLink="/contact"
+              class="block p-2 rounded-xl hover:bg-blue-700"
+              (click)="toggleMenu()"
+              >Contact</a
+            >
           </li>
         </ul>
-
-        <div class="flex">
+        <div class="mt-6">
           <button
-            class="mr-5 p-2 w-20 rounded-xl bg-blue-600 hover:bg-blue-700 font-medium"
-            (click)="showResume = !showResume"
+            class="w-full p-2 rounded-xl bg-blue-600 hover:bg-blue-700 font-medium"
+            (click)="toggleResume()"
           >
             {{ showResume ? "Back" : "Resume" }}
           </button>
           <a
             href="https://github.com/Rahul-28"
             target="_blank"
-            class="opacity-100 hover:opacity-80"
+            class="block mt-4 opacity-100 hover:opacity-80"
           >
             <img
               src="../assets/images/github-mark-white.svg"
               alt="git"
-              class="w-10 h-10"
+              class="w-10 h-10 mx-auto"
             />
           </a>
         </div>
       </div>
-    </nav>
+    </div>
 
     @if (showResume) {
       <pdf-viewer
@@ -63,66 +159,83 @@
         class="bg-topography-pattern mt-16"
       ></pdf-viewer>
     } @else {
-      <router-outlet></router-outlet>
+      <app-home></app-home>
 
       <footer class="bg-slate-700 text-white">
-        <div class="flex justify-around px-10">
-          <div class="flex flex-col items-center justify-center text-center">
-            <p class="m-1">&copy;Rahul Rajesh</p>
-            <div class="flex">
-              <p class="m-1">Made with</p>
-              <img
-                class="w-7 h-7"
-                src="../assets/images/angular-icon.svg"
-                alt="angular-icon"
-              />
+        <div class="container mx-auto py-8 px-4">
+          <div
+            class="flex flex-col md:flex-row justify-around items-center text-center md:text-left"
+          >
+            <div class="mb-6 md:mb-0">
+              <p class="mb-2">&copy; Rahul Rajesh</p>
+              <div class="flex justify-center md:justify-start items-center">
+                <p class="mr-2">Made with</p>
+                <img
+                  class="w-7 h-7"
+                  src="../assets/images/angular-icon.svg"
+                  alt="angular-icon"
+                />
+              </div>
+            </div>
+            <div class="mb-6 md:mb-0">
+              <h2 class="mb-4 font-semibold text-xl">Socials</h2>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="https://github.com/Rahul-28"
+                    target="_blank"
+                    class="hover:text-blue-300"
+                    >Github</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/rahul-rajesh-s-b06386212/"
+                    target="_blank"
+                    class="hover:text-blue-300"
+                    >LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://linktr.ee/rahulrajesh"
+                    target="_blank"
+                    class="hover:text-blue-300"
+                    >Linktree</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="mb-4 font-semibold text-xl">Others</h2>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="mailto:rahulrajeshrr365@gmail.com"
+                    class="hover:text-blue-300"
+                    >Mail</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://stackoverflow.com/users/23579476/rahul-rajesh"
+                    target="_blank"
+                    class="hover:text-blue-300"
+                    >Stack Overflow</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
-          <div>
-            <h2 class="m-2 font-semibold text-xl">Socials</h2>
-            <ul>
-              <li class="m-2 hover:text-blue-300">
-                <a href="https://github.com/Rahul-28" target="_blank">Github</a>
-              </li>
-              <li class="m-2 hover:text-blue-300">
-                <a
-                  href="https://www.linkedin.com/in/rahul-rajesh-s-b06386212/"
-                  target="_blank"
-                  >LinkedIn</a
-                >
-              </li>
-              <li class="m-2 hover:text-blue-300">
-                <a href="https://linktr.ee/rahulrajesh" target="_blank"
-                  >Linktree</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 class="m-2 font-semibold text-xl">Others</h2>
-            <ul>
-              <li class="m-2 hover:text-blue-300">
-                <a href="mailto:rahulrajeshrr365@gmail.com">Mail</a>
-              </li>
-              <li class="m-2 hover:text-blue-300">
-                <a
-                  href="https://stackoverflow.com/users/23579476/rahul-rajesh"
-                  target="_blank"
-                  >Stackoverflow</a
-                >
-              </li>
-            </ul>
-          </div>
+          <p class="text-center mt-6">
+            Feel free to 🌟 or fork this project
+            <a
+              href="https://github.com/Rahul-28/Portfolio"
+              class="underline hover:text-blue-300"
+              >here</a
+            >
+          </p>
         </div>
-        <p class="text-center p-1">
-          Feel free to 🌟 or fork this project
-          <a
-            href="https://github.com/Rahul-28/Portfolio"
-            class="underline hover:text-blue-300"
-            >here</a
-          >
-        </p>
       </footer>
     }
   </body>
