@@ -3,29 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Design with Tailwind CSS</title>
-    <!-- Include Tailwind CSS via CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
   </head>
   <body class="font-sans">
     <nav
       class="p-3 px-6 top-0 w-full z-50 text-white bg-slate-700 fixed flex justify-between items-center"
     >
       <div class="font-semibold text-blue-400 text-3xl hover:text-blue-700">
-        <a routerLink="">Rahul</a>
+        <a href="#home-page">Rahul</a>
       </div>
 
       <div class="hidden md:flex items-center space-x-6 text-xl">
-        <a routerLink="/about" class="hover:bg-blue-700 p-2 rounded-xl"
+        <a href="#about-page" class="hover:bg-blue-700 p-2 rounded-xl"
           >About Me</a
         >
-        <a routerLink="/skills" class="hover:bg-blue-700 p-2 rounded-xl"
+        <a href="#skills-page" class="hover:bg-blue-700 p-2 rounded-xl"
           >Projects</a
         >
-        <a routerLink="/contact" class="hover:bg-blue-700 p-2 rounded-xl"
+        <a href="#contact-page" class="hover:bg-blue-700 p-2 rounded-xl"
           >Contact</a
         >
       </div>
@@ -50,7 +44,7 @@
         </a>
       </div>
 
-      <button id="menu-toggle" class="md:hidden" (click)="toggleMenu()">
+      <button id="menu-toggle" class="md:hidden st" (click)="toggleMenu()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 text-white"
@@ -96,7 +90,7 @@
         <ul class="space-y-4 text-xl">
           <li>
             <a
-              routerLink="/about"
+              href="#about-page"
               class="block p-2 rounded-xl hover:bg-blue-700"
               (click)="toggleMenu()"
               >About Me</a
@@ -104,7 +98,7 @@
           </li>
           <li>
             <a
-              routerLink="/skills"
+              href="#skills-page"
               class="block p-2 rounded-xl hover:bg-blue-700"
               (click)="toggleMenu()"
               >Projects</a
@@ -112,7 +106,7 @@
           </li>
           <li>
             <a
-              routerLink="/contact"
+              href="#contact-page"
               class="block p-2 rounded-xl hover:bg-blue-700"
               (click)="toggleMenu()"
               >Contact</a

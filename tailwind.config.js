@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         caveat: ["Caveat", "cursive"],
         noto: ["Noto Sans JP", "sans-serif"],
+        eduTas: ["Edu TAS Beginner", "cursive"],
       },
       backgroundImage: {
         "fish-pattern": "url('/assets/images/back-ground/fish-bg.png')",
