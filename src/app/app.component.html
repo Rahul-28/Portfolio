@@ -9,17 +9,26 @@
       class="p-3 px-6 top-0 w-full z-50 text-white bg-slate-700 fixed flex justify-between items-center"
     >
       <div class="font-semibold text-blue-400 text-3xl hover:text-blue-700">
-        <a href="#home-page">Rahul</a>
+        <a href="#home-page" (click)="this.showResume = false">Rahul</a>
       </div>
 
       <div class="hidden md:flex items-center space-x-6 text-xl">
-        <a href="#about-page" class="hover:bg-blue-700 p-2 rounded-xl"
+        <a
+          href="#about-page"
+          class="hover:bg-blue-700 p-2 rounded-xl"
+          (click)="toggleMenu()"
           >About Me</a
         >
-        <a href="#skills-page" class="hover:bg-blue-700 p-2 rounded-xl"
+        <a
+          href="#skills-page"
+          class="hover:bg-blue-700 p-2 rounded-xl"
+          (click)="toggleMenu()"
           >Projects</a
         >
-        <a href="#contact-page" class="hover:bg-blue-700 p-2 rounded-xl"
+        <a
+          href="#contact-page"
+          class="hover:bg-blue-700 p-2 rounded-xl"
+          (click)="toggleMenu()"
           >Contact</a
         >
       </div>

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { HomeComponent } from './home/home.component';
 @Component({
@@ -8,16 +8,13 @@ import { HomeComponent } from './home/home.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'Portfolio';
   showResume = false;
   isMenuOpen = false;
 
-  ngAfterViewInit(): void {
-
-  }
-
   toggleMenu() {
+    this.showResume = false;
     this.isMenuOpen = !this.isMenuOpen;
   }
 
